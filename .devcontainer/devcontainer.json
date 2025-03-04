@@ -30,7 +30,19 @@
     "vscode": {
       "extensions": [
         "bradlc.vscode-tailwindcss"
-      ]
+      ],
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+          },
+          "zsh": {
+            "path": "zsh"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
     }
   },
 
