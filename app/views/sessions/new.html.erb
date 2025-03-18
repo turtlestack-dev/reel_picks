@@ -1,18 +1,46 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img class="mx-auto h-10 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+    <%= image_tag "film_icon.svg", class: "mx-auto h-10 w-auto", alt: "Reel Picks" %>
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
   </div>
 
   <% if alert = flash[:alert] %>
     <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-      <p class="py-2 px-3 bg-red-50 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+      <div class="rounded-md bg-red-950/50 p-4">
+        <div class="flex">
+          <div class="shrink-0">
+            <svg class="size-5 text-red-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-sm font-medium text-red-200">Attention needed</h3>
+            <div class="mt-2 text-sm text-red-300">
+              <p><%= alert %></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 
   <% if notice = flash[:notice] %>
     <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-      <p class="py-2 px-3 bg-green-50 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+      <div class="rounded-md bg-green-950/50 p-4">
+        <div class="flex">
+          <div class="shrink-0">
+            <svg class="size-5 text-green-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-sm font-medium text-green-200">Success</h3>
+            <div class="mt-2 text-sm text-green-300">
+              <p><%= notice %></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 
@@ -26,7 +54,7 @@
               autofocus: true, 
               autocomplete: "username", 
               value: params[:email_address],
-              class: "block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" %>
+              class: "block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
         </div>
       </div>
 
@@ -34,7 +62,7 @@
         <div class="flex items-center justify-between">
           <%= form.label :password, class: "block text-sm/6 font-medium text-white" %>
           <div class="text-sm">
-            <%= link_to "Forgot password?", new_password_path, class: "font-semibold text-indigo-400 hover:text-indigo-300" %>
+            <%= link_to "Forgot password?", new_password_path, class: "font-semibold text-rose-400 hover:text-rose-300" %>
           </div>
         </div>
         <div class="mt-2">
@@ -42,18 +70,18 @@
               required: true, 
               autocomplete: "current-password", 
               maxlength: 72,
-              class: "block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" %>
+              class: "block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
         </div>
       </div>
 
       <div>
-        <%= form.submit "Sign in", class: "flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500" %>
+        <%= form.submit "Sign in", class: "flex w-full justify-center rounded-md bg-rose-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-rose-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500" %>
       </div>
     <% end %>
 
-    <p class="mt-10 text-center text-sm/6 text-gray-400">
+    <p class="mt-10 text-center text-sm/6 text-neutral-400">
       Not a member?
-      <a href="#" class="font-semibold text-indigo-400 hover:text-indigo-300">Start a 14 day free trial</a>
+      <a href="#" class="font-semibold text-rose-400 hover:text-rose-300">Start a 14 day free trial</a>
     </p>
   </div>
 </div>
