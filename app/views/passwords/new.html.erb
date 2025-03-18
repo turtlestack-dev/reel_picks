@@ -1,17 +1,49 @@
-<div class="mx-auto md:w-2/3 w-full">
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= image_tag "film_icon.svg", class: "mx-auto h-10 w-auto", alt: "Reel Picks" %>
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Reset your password</h2>
+  </div>
+
   <% if alert = flash[:alert] %>
-    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="rounded-md bg-red-950/50 p-4">
+        <div class="flex">
+          <div class="shrink-0">
+            <svg class="size-5 fill-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-sm font-medium text-red-200">Attention needed</h3>
+            <div class="mt-2 text-sm text-red-300">
+              <p><%= alert %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 
-  <h1 class="font-bold text-4xl">Forgot your password?</h1>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= form_with url: passwords_path, class: "space-y-6" do |form| %>
+      <div>
+        <%= form.label :email_address, class: "block text-sm/6 font-medium text-white" %>
+        <div class="mt-2">
+          <%= form.email_field :email_address, 
+              required: true, 
+              autofocus: true, 
+              autocomplete: "username", 
+              value: params[:email_address],
+              class: "block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
+        </div>
+      </div>
 
-  <%= form_with url: passwords_path, class: "contents" do |form| %>
-    <div class="my-5">
-      <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "block shadow-sm rounded-md border border-gray-400 focus:outline-solid focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
-    </div>
+      <div>
+        <%= form.submit "Email reset instructions", class: "flex w-full justify-center rounded-md bg-rose-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-rose-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500" %>
+      </div>
+    <% end %>
 
-    <div class="inline">
-      <%= form.submit "Email reset instructions", class: "w-full sm:w-auto text-center rounded-lg px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
-    </div>
-  <% end %>
+    <p class="mt-10 text-center text-sm/6 text-neutral-400">
+      Remember your password?
+      <%= link_to "Sign in", new_session_path, class: "font-semibold text-rose-400 hover:text-rose-300" %>
+    </p>
+  </div>
 </div>
