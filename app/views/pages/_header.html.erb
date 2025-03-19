@@ -21,7 +21,13 @@
       <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-      <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+      <% if authenticated? %>
+        <%= button_to "Log out", session_path, method: :delete, class: "text-sm/6 font-semibold text-white" %>
+      <% else %>
+        <%= link_to new_session_path, class: "text-sm/6 font-semibold text-white" do %>
+          Log in <span aria-hidden="true">&rarr;</span>
+        <% end %>
+      <% end %>
     </div>
   </nav>
   <!-- Mobile menu, show/hide based on menu open state. -->
@@ -50,7 +56,11 @@
             <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-neutral-800">Company</a>
           </div>
           <div class="py-6">
-            <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-neutral-800">Log in</a>
+            <% if authenticated? %>
+              <%= button_to "Log out", session_path, method: :delete, class: "-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-neutral-800" %>
+            <% else %>
+              <%= link_to "Log in", new_session_path, class: "-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-neutral-800" %>
+            <% end %>
           </div>
         </div>
       </div>
