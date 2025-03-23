@@ -22,7 +22,8 @@
     </div>
     <div class="hidden lg:flex lg:flex-1 lg:justify-end">
       <% if authenticated? %>
-        <%= button_to "Log out", session_path, method: :delete, class: "text-sm/6 font-semibold text-white" %>
+        <span class="inline-block max-w-xs truncate mx-3 px-2 border-r border-neutral-500 text-sm/6 text-neutral-400"><%= Current.user.email_address %></span>
+        <%= button_to "Log out", session_path, method: :delete, class: "text-nowrap text-sm/6 font-semibold text-white" %>
       <% else %>
         <%= link_to new_session_path, class: "text-sm/6 font-semibold text-white" do %>
           Log in <span aria-hidden="true">&rarr;</span>
