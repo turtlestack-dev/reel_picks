@@ -1,3 +1,13 @@
+require "simplecov"
+require "simplecov-tailwindcss"
+
+SimpleCov.start "rails" do
+  formatter SimpleCov::Formatter::TailwindFormatter
+  coverage_dir "tmp/coverage"
+
+  add_group "Services", "app/services"
+end
+
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
