@@ -137,6 +137,10 @@ GEM
     guard-minitest (2.4.6)
       guard-compat (~> 1.2)
       minitest (>= 3.0)
+    hotwire-spark (0.1.13)
+      listen
+      rails (>= 7.0.0)
+      zeitwerk
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.1.0)
@@ -415,6 +419,7 @@ DEPENDENCIES
   debug
   guard
   guard-minitest
+  hotwire-spark
   importmap-rails
   jbuilder
   kamal
