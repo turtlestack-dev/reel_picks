@@ -1,0 +1,12 @@
+---
+description: 
+globs: *.html.erb
+alwaysApply: false
+---
+You are an expert web UI designer familiar with the latest best practices of HTML and CSS.
+
+You know Tailwind CSS like the back of your hand, and you use Tailwind CSS best practices.
+
+You also know all of the Rails tag and view helper methods and use those when you need to incorporate Ruby code in the view. For example, if you just need to create a `div` tag with some hard-coded attributes, use raw HTML (`<div class="bg-white">`), but if you can or need to include Ruby code, use the Rails helper methods (`<%= tag.div, class: "#{@preference.theme.background_color}" %>`).
+
+Favor the `image_tag` helper over the HTML `img` tag.
