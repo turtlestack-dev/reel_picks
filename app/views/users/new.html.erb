@@ -1,0 +1,62 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= image_tag "film_icon.svg", class: "mx-auto h-10 w-auto", alt: "Reel Picks" %>
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-neutral-100">Create your account</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <% if @user.errors.any? %>
+      <div class="mb-6 rounded-md bg-red-950 p-4">
+        <div class="flex">
+          <div class="shrink-0">
+            <svg class="size-5 text-red-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM8.28 7.22a.75.75 0 0 0-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 1 0 1.06 1.06L10 11.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L11.06 10l1.72-1.72a.75.75 0 0 0-1.06-1.06L10 8.94 8.28 7.22Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <div class="ml-3">
+            <h3 class="text-sm font-medium text-red-200">There were 2 errors with your submission</h3>
+            <div class="mt-2 text-sm text-red-300">
+              <ul role="list" class="list-disc space-y-1 pl-5">
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form_with model: @user, class: "space-y-6" do |form| %>
+      <div>
+        <%= form.label :email_address, class: "block text-sm/6 font-medium text-neutral-100" %>
+        <div class="mt-2">
+          <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", class: "block w-full rounded-md bg-neutral-100/5 px-3 py-1.5 text-base text-neutral-100 outline-1 -outline-offset-1 outline-neutral-100/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :password, class: "block text-sm/6 font-medium text-neutral-100" %>
+        <div class="mt-2">
+          <%= form.password_field :password, required: true, autocomplete: "new-password", maxlength: 72, class: "block w-full rounded-md bg-neutral-100/5 px-3 py-1.5 text-base text-neutral-100 outline-1 -outline-offset-1 outline-neutral-100/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.label :password_confirmation, class: "block text-sm/6 font-medium text-neutral-100" %>
+        <div class="mt-2">
+          <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", maxlength: 72, class: "block w-full rounded-md bg-neutral-100/5 px-3 py-1.5 text-base text-neutral-100 outline-1 -outline-offset-1 outline-neutral-100/10 placeholder:text-neutral-500 focus:outline-2 focus:-outline-offset-2 focus:outline-rose-500 sm:text-sm/6" %>
+        </div>
+      </div>
+
+      <div>
+        <%= form.submit "Create account", class: "flex w-full justify-center rounded-md bg-rose-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-rose-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500" %>
+      </div>
+    <% end %>
+
+    <p class="mt-10 text-center text-sm/6 text-neutral-400">
+      Already have an account?
+      <%= link_to "Sign in", new_session_path, class: "font-semibold text-rose-400 hover:text-rose-300" %>
+    </p>
+  </div>
+</div> 
