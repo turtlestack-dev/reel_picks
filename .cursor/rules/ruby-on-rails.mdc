@@ -64,6 +64,28 @@ You are an expert in Ruby, Ruby on Rails, and Hotwire (Turbo and Stimulus).
 - Write comprehensive tests using RSpec or Minitest.
 - Follow TDD/BDD practices.
 - Use fixtures for test data generation.
+- When writing unit tests, use these basic guidelines:
+  - Writing unit tests is all about the object under test and messages.
+  - Treat the object under test like a "black box."
+  - Messages can also be referred to as method calls.
+  - There are two basic types of messages: queries and commands.
+    - Query messages perform a calculation and return a result. Or in other words, query messages return something, but change nothing.
+    - Command messages change something the rest of the app can "see" (public), also known as a side effect. Or in other words, command messages change something, but don't return anything you depend on.
+    - Sometimes those two messages types are conflated, but it's best to avoid that unless necessary.
+  - From the point of view of the object under test, there are three origins for messages: incoming, internal, and outgoing.
+    - Incoming messages are sent to the object under test.
+    - Internal messages are messages the object under test sends to itself.
+    - Outgoing messages are sent out from the object under test.
+  - Given these message types and message origins, you can create a matrix:
+    - Tests for incoming query messages should assert a result.
+    - Tests for incoming command messages should test for a direct, public side effect.
+    - As a rule, ignore testing internal messages.
+    - For outgoing query messages, don't test them.
+      - Don't make assertions about their result.
+      - Do not expect to send them.
+    - For outgoing command messages, test only that a messages was sent to the target object—do not assert the result of the sent message.
+      - This may involve creating a mock for the target object in the test.
+- Controller unit tests should not assert view elements (i.e., that there is an `h2` tag with specific content).
 
 ## Security
 - Implement proper authentication and authorization (e.g., Devise, Pundit).
