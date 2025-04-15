@@ -1,0 +1,11 @@
+name: Epic
+description: Create a new epic to track major areas of functionality.
+projects: ["turtlestack-dev/10"]
+type: epic
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the user-facing outcome or product value of this epic.
+      placeholder: What problem does this epic solve? What functionality does it group?
