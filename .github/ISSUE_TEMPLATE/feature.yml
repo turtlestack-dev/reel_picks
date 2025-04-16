@@ -1,0 +1,33 @@
+name: Feature
+description: Create a new feature to support user-facing functionality.
+projects: ["turtlestack-dev/10"]
+type: feature
+body:
+  - type: textarea
+    id: user_story
+    attributes:
+      label: User Story
+      description: 'Use the format: "As a [role], I want to [do something] so that [value]."'
+      placeholder: As a user, I want to upload a profile picture so that others can recognize me.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List what must be true for this feature to be considered complete.
+      placeholder: |
+        - [ ] Users can upload an image
+        - [ ] Image is displayed in their profile
+        - [ ] Image is stored securely
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes
+      description: |
+        Add any context, links, or technical notes. You may format your notes as alerts using the following syntax:
+      placeholder: |
+        > [!important]
+        > This feature depends on avatar support in the profile model.
