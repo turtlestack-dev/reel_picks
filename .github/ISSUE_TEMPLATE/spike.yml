@@ -1,0 +1,37 @@
+name: Spike
+description: Create a time-boxed research or investigation task.
+projects: ["turtlestack-dev/10"]
+type: spike
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Research Question or Goal
+      description: What are we trying to learn, validate, or decide?
+      placeholder: Can we use Redis to handle per-user rate limiting with minimal latency?
+    validations:
+      required: true
+
+  - type: input
+    id: timebox
+    attributes:
+      label: Timebox
+      description: Set a time limit for this spike (e.g. 4 hours, 1 day)
+      placeholder: 1 day
+
+  - type: input
+    id: deliverable
+    attributes:
+      label: Deliverable
+      description: What should this spike produce? (e.g. Summary doc, prototype, recommendation)
+      placeholder: Summary of pros and cons with recommended approach
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes
+      description: |
+        Add background context, links, or related tickets. You can format alerts like this:
+      placeholder: |
+        > [!note]
+        > This spike is related to rate limiting tasks in the authentication flow.
