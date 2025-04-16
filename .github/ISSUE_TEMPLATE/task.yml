@@ -1,0 +1,20 @@
+name: Task
+description: Create a technical task for implementing part of a feature or maintaining the system.
+type: task
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what needs to be done and why, if helpful.
+      placeholder: Update the settings form to allow changes to email and password.
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes
+      description: |
+        Add any extra context, links, or technical details. You can format alerts using GitHub's blockquote syntax:
+      placeholder: |
+        > [!important]
+        > This task depends on `UsersController#edit` being in place.
